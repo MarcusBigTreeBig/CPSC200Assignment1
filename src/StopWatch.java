@@ -1,6 +1,6 @@
 /**
  * StopWatch class
- * The time is measured in nanoseconds
+ * The time is measured in seconds
  * Can be started, stopped, and reset
  * Start, stop, and reset all return this
  * Can check if the StopWatch is currently running
@@ -27,9 +27,9 @@ public class StopWatch {
      */
     public double elapsed(){
         if (isRunning()) {
-            return System.nanoTime() - startTime;
+            return (System.nanoTime() - startTime)/Math.pow(10, 9);
         }else{
-            return currentTime;
+            return currentTime/Math.pow(10, 9);
         }
     }
     public boolean isRunning(){return running;}
