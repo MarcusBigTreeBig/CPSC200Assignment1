@@ -1,8 +1,10 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Random;
 
 public class TestAddition {
-    public static void main (String[] args) {
+    public static void main (String[] args) throws IOException {
         Random rand = new Random();
         StopWatch clock = new StopWatch();
         int increment = 1000000;
@@ -10,6 +12,8 @@ public class TestAddition {
         int trialsPerSize = 10;
         BigInteger n1;
         BigInteger n2;
+        FileWriter sizeWriter = new FileWriter("AdditionSizes.txt");
+        FileWriter timeWriter = new FileWriter("AdditionTimes.txt");
         System.out.println("Size, Time(ms)");
         for (int i = increment; i <= dataPoints*increment; i += increment) {
             clock.reset();
@@ -21,6 +25,10 @@ public class TestAddition {
                 clock.stop();
             }
             System.out.println(i + ", " + clock.elapsed()*1000/trialsPerSize);
+            sizeWriter.write(i + "\n");
+            timeWriter.write(clock.elapsed()*1000/trialsPerSize + "\n");
         }
+        sizeWriter.close();
+        timeWriter.close();
     }
 }
