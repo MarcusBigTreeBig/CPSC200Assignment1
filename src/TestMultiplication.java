@@ -12,8 +12,8 @@ public class TestMultiplication {
         int trialsPerSize = 10;
         BigInteger n1;
         BigInteger n2;
-        FileWriter sizeWriter = new FileWriter("AdditionSizes.txt");
-        FileWriter timeWriter = new FileWriter("AdditionTimes.txt");
+        FileWriter sizeWriter = new FileWriter("MultiplicationSizes.txt");
+        FileWriter timeWriter = new FileWriter("MultiplicationTimes.txt");
         System.out.println("Size, Time(ms)");
         for (int i = increment; i <= dataPoints*increment; i += increment) {
             clock.reset();
