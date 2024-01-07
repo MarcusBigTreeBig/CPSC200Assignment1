@@ -7,9 +7,9 @@ public class TestAddition {
     public static void main (String[] args) throws IOException {
         Random rand = new Random();
         StopWatch clock = new StopWatch();
-        int increment = 1000000;
+        int increment = 10000000;
         int dataPoints = 100;
-        int trialsPerSize = 10;
+        int trialsPerSize = 30;
         BigInteger n1;
         BigInteger n2;
         FileWriter sizeWriter = new FileWriter("AdditionSizes.txt");
