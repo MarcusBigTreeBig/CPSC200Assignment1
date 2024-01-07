@@ -7,7 +7,7 @@ public class TestAddition {
     public static void main (String[] args) throws IOException {
         Random rand = new Random();
         StopWatch clock = new StopWatch();
-        int increment = 10000000;
+        int increment = 1000000;//also the first data point
         int dataPoints = 100;
         int trialsPerSize = 30;
         BigInteger n1;
@@ -15,11 +15,15 @@ public class TestAddition {
         FileWriter sizeWriter = new FileWriter("AdditionSizes.txt");
         FileWriter timeWriter = new FileWriter("AdditionTimes.txt");
         System.out.println("Size, Time(ms)");
-        for (int i = increment; i <= dataPoints*increment; i += increment) {
+        for (int i = increment; i <= dataPoints*increment; i += increment) {//each desired data point
             clock.reset();
-            for (int j = 0; j < trialsPerSize; j++) {
-                n1 = new BigInteger(i, rand);
-                n2 = new BigInteger(i, rand);
+            for (int j = 0; j < trialsPerSize; j++) {//running tests for each data point
+                do {
+                    n1 = new BigInteger(i, rand);
+                }while (n1.bitLength() != i);//first bit can be generated as 0, this ensures that does not happen
+                do {
+                    n2 = new BigInteger(i, rand);
+                }while (n2.bitLength() != i);
                 clock.start();
                 n1.add(n2);
                 clock.stop();
