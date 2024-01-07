@@ -1,7 +1,7 @@
 import java.math.BigInteger;
 import java.util.Random;
 
-public class BigIntegerAddition {
+public class TestAddition {
     public static void main (String[] args) {
         Random rand = new Random();
         StopWatch clock = new StopWatch();
