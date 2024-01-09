@@ -3,6 +3,12 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Random;
 
+/**
+ * Program intended to find the asymptotic complexity of BigInteger.add(BigInteger n)
+ * Times several trials and takes the average time for a range of sizes of BigInteger numbers
+ * Outputs the numbers sizes in bits, and the running times in ms to separate txt files
+ */
+
 public class TestAddition {
     public static void main (String[] args) throws IOException {
         Random rand = new Random();
@@ -19,6 +25,12 @@ public class TestAddition {
             clock.reset();
             for (int j = 0; j < trialsPerSize; j++) {//running tests for each data point
                 do {
+                    /*
+                    https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html
+                    The constructor used is one of 2 constructors that gives a random big integer as desired for testing the addition of big integers.
+                    The other constructor randomly produces an integer that is likely prime, which prime numbers are not helpful for measuring the addition of big integers,
+                    and reduces the randomness.
+                     */
                     n1 = new BigInteger(i, rand);
                 }while (n1.bitLength() != i);//first bit can be generated as 0, this ensures that does not happen
                 do {

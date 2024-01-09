@@ -3,6 +3,12 @@ import java.io.IOException;
 import java.math.BigInteger;
 import java.util.Random;
 
+/**
+ * Program intended to find the asymptotic complexity of BigInteger.multiply(BigInteger n)
+ * Times several trials and takes the average time for a range of sizes of BigInteger numbers
+ * Outputs the numbers sizes in bits, and the running times in ms to separate txt files
+ */
+
 public class TestMultiplication {
     public static void main (String[] args) throws IOException {
         Random rand = new Random();
