@@ -4,7 +4,7 @@
  * Can be started, stopped, and reset
  * Start, stop, and reset all return this
  * Can check if the StopWatch is currently running
- *
+ * Time is stored in the object in nanoseconds
  */
 public class StopWatch {
 
@@ -42,7 +42,7 @@ public class StopWatch {
     public StopWatch start() {
         if (!isRunning()) {
             running = true;
-            startTime = System.nanoTime();
+            startTime = System.nanoTime();//last so other tasks don't affect the time
         }
         return this;
     }
@@ -54,7 +54,7 @@ public class StopWatch {
      */
     public StopWatch stop() {
         if (isRunning()) {
-            currentTime = elapsed();
+            currentTime = elapsed();//first so other tasks don't affect the time
             running = false;
         }
         return this;
